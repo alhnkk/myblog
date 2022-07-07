@@ -26,9 +26,9 @@ const PostWidget = ({categories, slug}) => {
   console.log(relatedPosts);
   
   return (
-    <div className='rounded-lg shadow-lg p-8 mb-8'>
+    <div className='border rounded-lg widgetClass shadow p-8 mb-10'>
         
-        <h3 className='text-xl mb-8 font-semibold border-b pb-1'> 
+        <h3 className='text-xl card-title  mb-8 font-semibold border-b pb-1'> 
           {slug ? "İlgili İçerikler" : "Son Gönderiler"}
         </h3>
         

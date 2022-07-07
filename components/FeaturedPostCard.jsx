@@ -9,7 +9,7 @@ const FeaturedPostCard = ({ post }) => (
       <div className="absolute  bg-center bg-gradient-to-b opacity-0 from-gray-100 via-gray-700 to-black w-full h-72" />
       <div className="flex flex-col rounded-sm p-4 items-center justify-center absolute w-full h-full">
         <p className="text-white mb-4 text-shadow font-semibold text-xs">{moment(post.createdAt).format('DD/MM/YY dddd')}</p>
-        <p className="text-white mb-4  text-shadow font-semibold text-5xl text-center bg-gray-100 bg-opacity-25">{post.title}</p>
+        <p className="text-white mb-4  text-shadow font-semibold text-5xl text-center bg-gray-700 bg-opacity-75">{post.title}</p>
         <div className="flex items-center absolute bottom-5 w-full justify-center">
           <Image
             unoptimized
