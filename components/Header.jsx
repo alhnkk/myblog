@@ -1,7 +1,6 @@
     import React, {useContext, useState, useEffect} from 'react'
     import { getCategories } from '../services'
     import Link from 'next/link';
-    import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
     const Header = () => {
 
@@ -12,7 +11,8 @@
             .then((newCategories)=> setCategories(newCategories))   
     }, [])  
     return (
-    <div className="z-50 top-0 sticky bg-gradient-to-r from-sky-500 to-indigo-500 "   >        
+
+    <div className="z-50 top-0 sticky bg-gradient-to-l from-gray-700 via-gray-900 to-black "   >        
         <div className="shadow-md">
             <div className="sm:px-4 lg:px-8 ">
             <div className="flex items-center container mx-auto px-20  h-16">
