@@ -6,6 +6,7 @@
 
         const [categories, setCategories] = useState([]);
 
+
     useEffect(() => {  
         getCategories()
             .then((newCategories)=> setCategories(newCategories))   
@@ -28,6 +29,7 @@
                 
                 <div className="hidden flex-1 lg:flex justify-end px-2 lg:ml-6">
                     <div className="flex">
+                        
                     <Link href={"/"} > 
                         <a className='ml-4 px-3 py-2 rounded-lg text-lime-50  hover:bg-indigo-300 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 '>Ana Sayfa</a>
                         
@@ -40,15 +42,17 @@
                     <Link href={"/about"}>
                         <a className='ml-4 px-3 py-2 rounded-lg text-lime-50  hover:bg-indigo-300 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 '>Hakkımda</a>
                     </Link>
+
+
                     
-                    <form class="flex items-center">   
+                    <form class="flex items-center toggle">   
                         <div class="relative w-full">
                             <div class="flex absolute inset-y-0 left-0 items-center pl-3 cursor-pointer">
                                 <svg class="w-5 h-5 text-lime-50 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
                             </div>
                         </div>
                     </form> 
-               </div> 
+                </div> 
 
                     
                     
