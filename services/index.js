@@ -6,6 +6,7 @@ export const getPosts = async () => {
     const query = gql`
         query MyQuery {
             postsConnection {
+                
                 edges {
                     node {
                         author {
@@ -203,6 +204,7 @@ export const getFeaturedPosts = async () => {
     const query = gql`
       query GetCategoryPost() {
         posts(where: {featured: true}) {
+        
           author {
             name
             photo {
@@ -224,4 +226,3 @@ export const getFeaturedPosts = async () => {
     return result.posts;
   };
 
-  

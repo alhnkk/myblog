@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import {PostCard, Categories, PostWidget} from '../components'
+import {PostCard, Categories, PostWidget, Footer, EmailSubs} from '../components'
 import {getPosts} from '../services';
-
 import { FeaturedPosts } from '../sections'
+import postcss from 'postcss';
 
 export default function Home({ posts }) {
 
@@ -23,7 +23,7 @@ export default function Home({ posts }) {
           <div className="lg:col-span-1 col-span-1"></div>
           <div className='lg:col-span-7 col-span-1 '>
 
-            {posts.map((post) => (<PostCard post={post.node} key={post.title} />  ) )}
+            {posts.slice(0).reverse().map((post) => (<PostCard post={post.node} key={post.title} />  ) )}
             
           </div>
 
@@ -32,14 +32,16 @@ export default function Home({ posts }) {
 
               <div className=" lg:sticky relative top-8">
                 <PostWidget />
+                <EmailSubs />
                 <Categories />
 
               </div>
               <div className="lg:col-span-1 col-span-1"></div>
-
-          </div>
+          </div>          
 
         </div>
+        <Footer />
+
       </div>
 
 

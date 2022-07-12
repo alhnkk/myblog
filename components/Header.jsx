@@ -13,10 +13,10 @@
     }, [])  
     return (
 
-    <div className="z-50 top-0 sticky bg-gradient-to-l from-gray-700 via-gray-900 to-black "   >        
+    <div className="z-50 top-0 sticky navbarbluecolor"   >        
         <div className="shadow-md">
             <div className="sm:px-4 lg:px-8 ">
-            <div className="flex items-center container mx-auto px-20  h-16">
+            <div className="flex items-center   h-16">
                 <div className=" flex justify-end items-center px-2 lg:px-0">
                 <Link href="/">
                     <span className=" cursor-pointer ">
@@ -27,11 +27,11 @@
                 </div>
     
                 
-                <div className="hidden flex-1 lg:flex justify-end px-2 lg:ml-6">
+                <div className="hidden flex-1 lg:flex justify-end px-2 lg:ml-6 mr-10">
                     <div className="flex">
                         
                     <Link href={"/"} > 
-                        <a className='ml-4 px-3 py-2 rounded-lg text-lime-50  hover:bg-indigo-300 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 '>Ana Sayfa</a>
+                        <a className='ml-4 px-3 py-2 rounded-lg text-lime-50   hover:bg-indigo-300 hover:text-white transition duration-150 ease-in-out cursor-pointer focus:outline-none focus:text-white focus:bg-gray-700 '>Ana Sayfa</a>
                         
                     </Link>
     

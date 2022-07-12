@@ -28,7 +28,7 @@ const PostWidget = ({categories, slug}) => {
   return (
     <div className='border rounded-lg widgetClass shadow p-8 mb-10'>
         
-        <h3 className='text-xl card-title  mb-8 font-semibold border-b pb-1'> 
+        <h3 className='text-xl card-title  mb-8 font-semibold pb-1'> 
           {slug ? "İlgili İçerikler" : "Son Gönderiler"}
         </h3>
         

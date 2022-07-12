@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "flowbite": "^1.4.7",
     "flowbite-react": "^0.1.2",
     "graphql": "^16.5.0",
@@ -16,6 +17,7 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-multi-carousel": "^2.8.2",
+    "react-scroll-to-top": "^1.0.9",
     "sass": "^1.53.0"
   },
   "devDependencies": {
