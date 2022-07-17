@@ -4,49 +4,60 @@ import 'moment/locale/tr'
 moment.locale('tr')
 import Link from 'next/link'
 import Image from 'next/image';
-
+import { AiFillAccountBook, AiFillAndroid , AiOutlineArrowRight} from "react-icons/ai";
 
 const PostCard = ({post}) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
+    <div className="rounded-lg shadow-lg grid-rows-2 bg-white mb-4 p-3 border border-slate-200">
+      <div>
+      <div>
+        <h1 className='pt-5'>
+        <Link href={`/post/${post.slug}`}><a className='font-medium ml-4 text-4xl text-blue-900 hover:text-black'>{post.title}</a></Link>
+        </h1>
+      </div>
 
-    <div className="relative overflow-hidden shadow-md pb-80 mb-6">
-      <img src={post.featuredimage.url} alt="" className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
-    </div>
+      <div className='flex items-center ml-4 mt-2.5 text-sm text-gray-500'>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>      
+        < span className="align-middle mr-4">{moment(post.createdAt).format('MMMM DD, YYYY')}</span>
 
-    <h1 className="transition duration-700 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
-      <Link href={`/post/${post.slug}`}>{post.title}</Link>
-    </h1>
-    <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
-      <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8">
         <Image
           unoptimized
           alt={post.author.name}
-          height="30px"
-          width="30px"
-          className="align-middle rounded-full"
+          height="25px"
+          width="25px"
+          className=" align-middle rounded-full"
           src={post.author.photo.url}
         />
-        <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
+        <p>
+        {post.author.name}
+
+        </p>
       </div>
-      <div className="font-medium text-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-        <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
+      
       </div>
+   
+    <div className="grid lg:grid-cols-12 ">
+      <div className='col-span-1 lg:col-span-5 lg:p-4'>
+        <img className='pb-5 pt-2  rounded-lg' src={post.featuredimage.url} />
+      </div>
+    
+      <div className='col-span-1 lg:col-span-7' >
+              <p className='font-light pt-5 ml-2 text-gray-700'>
+                {post.excerpt}
+              </p>
+
+              <div className='flex justify-end mt-6  justify-end mr-7 ml-2'>
+              <Link href={`/post/${post.slug}`}>
+                <span className='btn-grad transition duration-500 transform hover:-translate-y-1   cursor-pointer text-lg font-medium rounded-md '>
+                Devamını Oku
+                </span>
+              </Link>
+
+              </div>
+      </div>
+
     </div>
-    <p className="text-center text-lg text-gray-700 font-normal px-4 lg:px-20 mb-8">
-      {post.excerpt}
-    </p>
-    <div className="text-center">
-      <Link href={`/post/${post.slug}`}>
-      <span className="btn-grad transition duration-500 transform hover:-translate-y-1   cursor-pointer text-lg font-medium rounded-md  px-6 py-3">
-              Devamını Oku
-            </span>
-      </Link>
     </div>
-  </div>
   )}
 
 

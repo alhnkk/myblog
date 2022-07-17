@@ -35,10 +35,11 @@
     }
 
     .navbarbgc {
-        background-color: #1B65A7;
-        // bg-gray-800 
-    }
+        background: #f85032;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #e73827, #f85032);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #e73827, #f85032); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+    }
    
     .ml30 {
         margin-left: 300px;
@@ -118,3 +119,5 @@
     .drpdwn {
         position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(352px, 84px); 
     }
+
+    

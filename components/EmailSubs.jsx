@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import Link from 'next/link'
+import { AiFillAccountBook, AiFillAndroid , AiOutlineMail} from "react-icons/ai";
 
-const Categories = () => {
+const EmailSubs = () => {
  
   return (
-    <div className='border border-blue-500 shadow-lg rounded-lg p-8 mb-8 pb-12 '>
-<svg className='flex w-10 mx-auto' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><path fill="#222" d="M53.42,53.32H10.58a8.51,8.51,0,0,1-8.5-8.5V19.18a8.51,8.51,0,0,1,8.5-8.5H53.42a8.51,8.51,0,0,1,8.5,8.5V44.82A8.51,8.51,0,0,1,53.42,53.32ZM10.58,13.68a5.5,5.5,0,0,0-5.5,5.5V44.82a5.5,5.5,0,0,0,5.5,5.5H53.42a5.5,5.5,0,0,0,5.5-5.5V19.18a5.5,5.5,0,0,0-5.5-5.5Z"/><path fill="#222" d="M32,38.08a8.51,8.51,0,0,1-5.13-1.71L3.52,18.71a1.5,1.5,0,1,1,1.81-2.39L28.68,34a5.55,5.55,0,0,0,6.64,0L58.67,16.32a1.5,1.5,0,1,1,1.81,2.39L37.13,36.37A8.51,8.51,0,0,1,32,38.08Z"/><path fill="#222" d="M4.17 49.14a1.5 1.5 0 0 1-1-2.62L21.57 30.11a1.5 1.5 0 0 1 2 2.24L5.17 48.76A1.46 1.46 0 0 1 4.17 49.14zM59.83 49.14a1.46 1.46 0 0 1-1-.38L40.43 32.35a1.5 1.5 0 1 1 2-2.24L60.82 46.52a1.5 1.5 0 0 1-1 2.62z"/></svg>
-
+    <div className='border border-blue-500 shadow-sm rounded-md p-8 mb-8 pb-12 '>
+      <h2>
+      <AiOutlineMail/>
+      </h2>
         <h3 className='text-xl ml-2 mb-3'> 
           Yeni gönderiler hakkında mail almak ister misiniz?
         </h3>
@@ -23,4 +25,4 @@ const Categories = () => {
   )
 }
 
-export default Categories
+export default EmailSubs
