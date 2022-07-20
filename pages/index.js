@@ -8,7 +8,7 @@ export default function Home({ posts }) {
 
 
   return (
-    <div>
+    <div className='dark:bg-zinc-900  '>
       <Head>
         <title>MyBlog</title>
         <link rel="icon" href="/favicon.ico"  />
@@ -29,7 +29,7 @@ export default function Home({ posts }) {
 
           <div className="text-slate-400 lg:col-span-4  col-span-1">
 
-              <div className=" sticky top-8">
+              <div className="top-8">
                 <PostWidget />
                 <Categories />
 
@@ -40,7 +40,6 @@ export default function Home({ posts }) {
         <Footer />
 
       </div>
-
 
   )
 }

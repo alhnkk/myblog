@@ -44,30 +44,30 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
-      <div className="p-4 lg:p-8 pb-12 mt-12 mb-8">
+      <div className=" lg:p-8 pb-12 mb-8">
+              <img src={post.featuredimage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-b-lg mb-6" />
         <div className="relative overflow-hidden mb-6">
-              <h1 className="mb-8 text-5xl font-semibold flex justify-center ml-2">{post.title}</h1>
-          <img src={post.featuredimage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
-        </div>
-        <div className=" lg:px-0 ">
-          <div className="flex items-center mb-8 lg:w-full">
-            <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8 items-center">
+              <h1 className="mb-8 text-5xl font-semibold flex justify-center ml-2 dark:text-slate-50">{post.title}</h1>
+          <div className="flex items-center justify-center mb-8 lg:w-full">
+            <div className="hidden md:flex justify-center lg:mb-0 lg:w-auto mr-8  items-center">
               <img
                 alt={post.author.name}
                 height="30px"
                 width="30px"
-                className="align-middle"
+                className="align-middle "
                 src={post.author.photo.url}
               />
-              <p className="inline align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
+              <p className="inline dark:text-slate-50 align-middle text-gray-700 ml-2 font-medium text-lg">{post.author.name}</p>
             </div>
-            <div className="font-medium text-gray-700">
+            <div className="font-medium text-gray-700 dark:text-slate-50">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
               <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
             </div>
           </div>
+        </div>
+        <div className=" lg:px-0 dark:text-slate-50">
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 

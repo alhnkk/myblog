@@ -44,15 +44,15 @@ const CommentsForm = ({slug}) => {
       })
   };
   return (
-    <div className='bg-white rounded-lg p-8 pb-12 mb-8'>
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4">
+    <div className='bg-white dark:bg-slate-800 rounded-lg p-8 pb-12 mb-8'>
+      <h3 className="text-xl mb-8 font-semibold border-b pb-4 dark:text-slate-50">
         Gönderiyi Yorumlayın
       </h3>
       <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 mb-4">
         <textarea 
         ref={commentEl}
         type="text" 
-        className="p-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" 
+        className="p-4 outline-none dark:bg-slate-300 w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" 
         name="comment"
         placeholder="Bir şeyler yazın" 
         />
@@ -62,7 +62,7 @@ const CommentsForm = ({slug}) => {
         <input
         ref={nameEl}
         type="text"
-        className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" 
+        className="py-2 dark:bg-slate-300 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" 
         placeholder='Adınızı Girin'
         name='name'
         />
@@ -70,7 +70,7 @@ const CommentsForm = ({slug}) => {
 <input
         ref={emailEl}
         type="text"
-        className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" 
+        className="py-2 px-4 dark:bg-slate-300 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700" 
         placeholder='Mail Adresinizi Girin'
         name='email'
         />

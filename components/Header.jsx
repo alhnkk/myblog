@@ -1,8 +1,34 @@
     import React, {useContext, useState, useEffect} from 'react'
     import { getCategories } from '../services'
     import Link from 'next/link';
+    import {useTheme} from 'next-themes'
 
     const Header = () => {
+        const [mounted, setMounted] = useState(false)
+        const {systemTheme, theme, setTheme} = useTheme()
+
+        useEffect(() => {
+          setMounted(true);
+        }, [])
+        
+        const renderThemeChanger = () => {
+            if (!mounted) return null;
+            const currentTheme = theme === "system" ? systemTheme : theme
+
+            if(currentTheme === "dark"){
+                return (
+                    <svg  className="w-6 h-6 mb-1 hover:text-white"  xmlns="http://www.w3.org/2000/svg" role="button" onClick={() => setTheme('light')} fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                )
+
+            }else {
+                return (
+                    <svg className="w-6 h-6 hover:text-white" role="button" onClick={() => setTheme('dark')}  xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>                )
+            }
+            }
 
         const [categories, setCategories] = useState([]);
         const [open, setOpen] = useState(false);
@@ -13,8 +39,8 @@
     }, [])  
     return (
 
-        <div className="shadow-md w-full fixed top-0 left-0 z-50 ">
-            <div className="md:flex items-center justify-between navbarbgc py-4 md:px-10 px-7">
+        <div className="shadow-md w-full fixed top-0 left-0 z-50  ">
+            <div className="md:flex items-center justify-between navbarbgc dark:bg-slate-800  py-4 md:px-10 px-7">
                 <div className="flex items-center">
                     <Link href="/">
                         <span className="cursor-pointer mr-1">
@@ -31,28 +57,30 @@
                     }
                 
                 </div>
-                <ul className={`md:flex md:items-center md:pb-0 pb-12  absolute md:static md:z-auto text-white z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-10' : 'top-[-490px]'}`}>
-                        <li className='md:ml-8 md:my-0 my-7'>
+                <ul className={`md:flex md:items-center md:pb-0 pb-12   absolute md:static md:z-auto text-white dark:text-slate-300 z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-10' : 'top-[-490px]'}`}>
+                        <li>{renderThemeChanger()}</li>
+                        <li className='md:ml-8 md:my-0 my-7 hover:bg-red-900 dark:hover:bg-slate-600 rounded-md px-2 py-1'>
                             <Link href={"/"} > 
-                                <a className='hover:text-gray-400 duration-500'>
-                                    Ana Sayfa
+                                <a className='hover:text-gray-50 '>
+                                    Ana Sayfa 
                                 </a>                                
                             </Link>
                         </li> 
-                        <li className='md:ml-8 md:my-0 my-7'>
+                        <li className='md:ml-8 md:my-0 my-7 hover:bg-red-900 dark:hover:bg-slate-600 rounded-md px-2 py-1'>
                             <Link href={"/contact"} > 
-                                <a className='hover:text-gray-400 duration-500'>
+                                <a className='hover:text-gray-100'>
                                     İletişim
                                 </a>                                
                             </Link>
                         </li> 
-                        <li className='md:ml-8 md:my-0 my-7'>
+                        <li className='md:ml-8 md:my-0 my-7 hover:bg-red-900 dark:hover:bg-slate-600 rounded-md px-2 py-1'>
                             <Link href={"/about"} > 
-                                <a className='hover:text-gray-400 duration-500'>
+                                <a className='hover:text-gray-100'>
                                     Hakkımda    
                                 </a>                                
                             </Link>
                         </li>
+           
                 </ul>
             </div>
         </div>

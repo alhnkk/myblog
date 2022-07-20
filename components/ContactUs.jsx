@@ -21,7 +21,7 @@ export const ContactUs = () => {
   };
 
   return (
-    <div className='mx-5 lg:mx-auto shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8  mt-11 lg:w-96'>
+    <div className='mx-5 lg:mx-auto shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8  mt-36  lg:w-96'>
       <form ref={form} onSubmit={sendEmail}>
         <div className="mb-6">
           <label className=' block mb-2 text-sm font-medium text-gray-900'>İsim</label>

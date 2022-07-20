@@ -19,8 +19,9 @@
         height: 100vh;
         left: 0;
         // background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );        
-        background-color: #F2F4F5;
-        // background-color: #F2F2F2;
+        background: rgb(255,255,255);
+        background: linear-gradient(128deg, rgba(255,255,255,1) 0%, rgba(231,248,255,1) 50%, rgba(255,255,255,1) 100%); 
+                // background-color: #F2F2F2;
         //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
         // background: #D3D3D3;
         // background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);    
@@ -34,11 +35,16 @@
     }
     }
 
-    .navbarbgc {
-        background: #f85032;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #e73827, #f85032);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #e73827, #f85032); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    .postFontSizeCfg {
+        font-size: 16px;
+    }
 
+    .navbarbgc {
+        background-color: #f85032;  /* fallback for old browsers */
+        background-color: -webkit-linear-gradient(to right, #e73827, #f85032);  /* Chrome 10-25, Safari 5.1-6 */
+        background-color: linear-gradient(to right, #e73827, #f85032); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        
     }
    
     .ml30 {

@@ -13,7 +13,7 @@ const PostDetails = ({ post }) => {
     }
     return (
         <div>
-            <div className="container mx-auto lg:px-10 lg:mb-8 lg:mt-10 pt-10">
+            <div className="mx-auto mt-10 dark:bg-zinc-900">
                 <div className="grid grid-cols-1 lg:px-64 lg:grid-cols-12 gap-12">
                     <div className="col-span-1 lg:col-span-12">
                         <PostDetail post={post}/>
