@@ -8,7 +8,7 @@ export default function Home({ posts }) {
 
 
   return (
-    <div className='dark:bg-zinc-900  '>
+    <div className='dark:bg-neutral-900  '>
       <Head>
         <title>MyBlog</title>
         <link rel="icon" href="/favicon.ico"  />
@@ -22,7 +22,9 @@ export default function Home({ posts }) {
         <div className="container mx-auto px-4  lg:px-32  grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className='lg:col-span-8 col-span-1 '>
 
-            {posts.slice(0).reverse().map((post) => (<PostCard post={post.node} key={post.title} />  ) )}
+          {posts.slice().reverse().map((post, index) => (
+            <PostCard key={index} post={post.node} />
+          ))}
             
           </div>
 

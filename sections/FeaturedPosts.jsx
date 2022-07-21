@@ -17,7 +17,7 @@ const responsive = {
   },
   tablet: {
     breakpoint: { max: 768, min: 640 },
-    items: 1,
+    items: 2,
   },
   mobile: {
     breakpoint: { max: 640, min: 0 },
@@ -55,7 +55,7 @@ const FeaturedPosts = () => {
   return (
     <div className="mt-8 mb-8">
       <Carousel infinite customLeftArrow={customLeftArrow} customRightArrow={customRightArrow} responsive={responsive} itemClass="px-4">
-        {dataLoaded && featuredPosts.map((post, index) => (
+        {dataLoaded && featuredPosts.slice().reverse().map((post, index) => (
           <FeaturedPostCard key={index} post={post} />
         ))}
       </Carousel>
