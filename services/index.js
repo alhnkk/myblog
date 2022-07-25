@@ -42,7 +42,7 @@ export const getPosts = async () => {
     export const getPostDetails = async (slug) => {
         const query = gql`
         query GetPostDetails($slug : String!) {
-            post(where: {slug: $slug}) {
+            post.reverse()(where: {slug: $slug}) {
             title
             excerpt
             featuredimage {

@@ -6,7 +6,7 @@ import { FeaturedPosts } from '../sections'
 import postcss from 'postcss';
 
 export default function Home({ posts }) {
-  const [visible, setVisible] = useState(2);
+  const [visible, setVisible] = useState(3);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 3);
@@ -26,7 +26,7 @@ export default function Home({ posts }) {
         <div className="container mx-auto px-4  lg:px-32  grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className='lg:col-span-8 col-span-1 '>
 
-          {posts?.reverse().slice(0, visible).map((post, index) => (
+          {posts?.slice(0, visible).map((post, index) => (
             <PostCard key={index} post={post.node} />
           ))}
           <div className="content-between flex flex-col pt-8	pb-10">
