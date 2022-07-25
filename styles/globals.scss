@@ -4,10 +4,7 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 
-
-
-    html,
-    body {
+    html,body {
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -18,88 +15,38 @@
         width: 100%;
         height: 100vh;
         left: 0;
-        // background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );        
         background: rgb(255,255,255);
         background: linear-gradient(128deg, rgba(255,255,255,1) 0%, rgba(231,248,255,1) 50%, rgba(255,255,255,1) 100%); 
-                // background-color: #F2F2F2;
-        //background: linear-gradient(to right bottom, #6d327c, #485DA6, #00a1ba, #01b18e, #32b37b);
-        // background: #D3D3D3;
-        // background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);    
         position: fixed;
-        // background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );        left: 0;
         top: 0;
         z-index: -1;
         background-position: 50% 50%;
         background-repeat: no-repeat;
         background-size: cover;
-    }
-    }
-
-    .postFontSizeCfg {
-        font-size: 16px;
-    }
-
+    }}
 
     .navbarbgc {
-        background-color: #f85032;  /* fallback for old browsers */
-        background-color: -webkit-linear-gradient(to right, #e73827, #f85032);  /* Chrome 10-25, Safari 5.1-6 */
-        background-color: linear-gradient(to right, #e73827, #f85032); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-        
-    }
-
-
-   
-    .ml30 {
-        margin-left: 300px;
+        background-color: #f85032; background-color: -webkit-linear-gradient(to right, #e73827, #f85032); background-color: linear-gradient(to right, #e73827, #f85032); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */        
     }
 
     sortbox:checked ~ #sortboxmenu {
         opacity: 1;
     }
 
-    $darkBgColor: #1a1a1a;
-
-    .dark-bgcolor {
-        color: $darkBgColor;
+    .btn-grad {
+    background-image: linear-gradient(to right, #A1FFCE 0%, #FAFFD1  51%, #A1FFCE  100%);
+    color: white;            
+    box-shadow: 0 0 20px #eee;
     }
 
-    // .navbarbgc {
+.btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
 
-    //     // background-color: #dcdfff  ;
-    //     // background-color: #1a1a1a;
-
-    //         // background-image: linear-gradient(to right, #A1FFCE 0%, #FAFFD1  51%, #A1FFCE  100%);
-    // }   
-    
-    .btn-grad {
-            background-image: linear-gradient(to right, #A1FFCE 0%, #FAFFD1  51%, #A1FFCE  100%);
-            color: white;            
-            box-shadow: 0 0 20px #eee;
-        }
-
-        .btn-grad:hover {
-            background-position: right center; /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
-        }
-        
-    
-    
     .text-shadow{
     text-shadow: 0px 2px 0px rgb(0 0 0 / 30%);
-    }
-
-    .adjacent-post{
-    & .arrow-btn{
-        transition: width 300ms ease;
-        width: 50px;
-    }
-    &:hover{
-        & .arrow-btn{
-        width: 60px;
-        }
-    }
     }
 
     .react-multi-carousel-list {
@@ -108,10 +55,7 @@
         width: 50px;
         &:hover{
         width: 60px;
-        }
-    }
-    
-    }
+        }}}
 
     a {
     color: inherit;
@@ -122,16 +66,13 @@
     box-sizing: border-box;
     }
 
-
     .btn-grad {
         background-image: linear-gradient(to right, #AAFFA9 0%, #11FFBD  51%, #AAFFA9  100%);
         color: white;            
         box-shadow: 0 0 20px #eee;
         border-radius: 10px;
     }
-    
+
     .drpdwn {
         position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(352px, 84px); 
     }
-
-    

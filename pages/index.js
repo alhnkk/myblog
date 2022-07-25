@@ -6,7 +6,7 @@ import { FeaturedPosts } from '../sections'
 import postcss from 'postcss';
 
 export default function Home({ posts }) {
-  const [visible, setVisible] = useState(6);
+  const [visible, setVisible] = useState(2);
 
   const showMoreItems = () => {
     setVisible((prevValue) => prevValue + 3);

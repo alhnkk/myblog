@@ -29,7 +29,7 @@ const PostCard = ({post}) => {
         <span className="text-sm flex text-gray-500">{moment(post.createdAt).format('D MMMM, YYYY')}</span>
         <h1 className="mt-3 font-medium leading-6">
           <Link href={`/post/${post.slug}`}>
-            <a href="./blog-post.html" className="dark:text-slate-50 text-xl font-medium text-gray-800 group-hover:text-slate-600">{post.title}</a>
+            <a href="./blog-post.html" className="dark:text-slate-50 text-xl font-medium text-gray-800 hover:text-gray-600 dark:hover:text-slate-600">{post.title}</a>
           </Link>
         </h1>
 
