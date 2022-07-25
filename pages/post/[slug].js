@@ -12,9 +12,9 @@ const PostDetails = ({ post }) => {
         return <Loader/>
     }
     return (
-        <div>
-            <div className="mx-auto mt-10 dark:bg-zinc-900">
-                <div className="grid grid-cols-1 lg:px-64 lg:grid-cols-12 gap-12">
+        <div className='dark:bg-zinc-900'>
+            <div className="@apply max-w-7xl mx-auto">
+                <div className=" lg:px-48 grid grid-cols-1 lg:grid-cols-12 gap-12">
                     <div className="col-span-1 lg:col-span-12">
                         <PostDetail post={post}/>
                         <Author author={post.author} />

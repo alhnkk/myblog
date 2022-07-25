@@ -3,7 +3,7 @@ import { ContactUs } from '../components/ContactUs'
     
     const contact = () => {
       return (
-        <div className='dark:bg-zinc-900'>
+        <div className='    '>
             <ContactUs />
         </div>
       )

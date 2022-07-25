@@ -10,7 +10,7 @@
     body {
     padding: 0;
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-decoration-color: #94a3b8;
         &:before{
         content:'';
@@ -39,6 +39,7 @@
         font-size: 16px;
     }
 
+
     .navbarbgc {
         background-color: #f85032;  /* fallback for old browsers */
         background-color: -webkit-linear-gradient(to right, #e73827, #f85032);  /* Chrome 10-25, Safari 5.1-6 */
@@ -46,6 +47,8 @@
 
         
     }
+
+
    
     .ml30 {
         margin-left: 300px;
