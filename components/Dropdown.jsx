@@ -1,30 +1,39 @@
-import React, {useEffect, useState} from 'react'
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { getCategories } from '../services'
-import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { getCategories } from "../services";
+import Link from "next/link";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
+  const [categories, setCategories] = useState([]);
 
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        getCategories()
-          .then((newCategories)=> setCategories(newCategories))
-    }, [])
+  useEffect(() => {
+    getCategories().then((newCategories) => setCategories(newCategories));
+  }, []);
 
   return (
     <Menu as="div" className="relative inline-block">
       <div>
-        <Menu.Button className="inline-flex md:ml-8 md:my-0  hover:bg-red-900 dark:hover:bg-slate-600 rounded-md px-2 py-1">
+        <Menu.Button className="inline-flex md:ml-8 md:my-0 my-7 hover:text-gray-50  hover:py-2 hover:bg-blue-900 dark:hover:bg-slate-600 rounded-md px-2 py-1">
           Kategoriler
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
         </Menu.Button>
       </div>
 
@@ -41,25 +50,27 @@ export default function Example() {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                    <a>
-                        {categories.map((category) => (
-                            <ul className="mx-4 mt-3 ">
-                                <li className="">
-                                <Link href={`/category/${category.slug}`} key={category.slug}>
-                                <span className="cursor-pointer block pb-3 dark:text-slate-300 mb-3 text-gray-700">
-                                    {category.name}
-                                </span> 
-                                </Link>
-                                </li>
-                            </ul>
-                            ))}      
-                    </a>
+                <a>
+                  {categories.map((category) => (
+                    <ul className="mx-4 mt-3">
+                      <li className="">
+                        <Link
+                          href={`/category/${category.slug}`}
+                          key={category.slug}
+                        >
+                          <span className="cursor-pointer block pb-3 dark:text-gray-50 mb-3 text-gray-700">
+                            {category.name}
+                          </span>
+                        </Link>
+                      </li>
+                    </ul>
+                  ))}
+                </a>
               )}
             </Menu.Item>
-
           </div>
         </Menu.Items>
       </Transition>
     </Menu>
-  )
+  );
 }

@@ -1,34 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
 
-import moment from 'moment';
+import moment from "moment";
 
 const PostDetail = ({ post }) => {
-
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
     if (obj) {
       if (obj.bold) {
-        modifiedText = (<b key={index}>{text}</b>);
+        modifiedText = <b key={index}>{text}</b>;
       }
 
       if (obj.italic) {
-        modifiedText = (<em key={index}>{text}</em>);
+        modifiedText = <em key={index}>{text}</em>;
       }
 
       if (obj.underline) {
-        modifiedText = (<u key={index}>{text}</u>);
+        modifiedText = <u key={index}>{text}</u>;
       }
     }
 
     switch (type) {
-      case 'heading-three':
-        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
-      case 'paragraph':
-        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
-      case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
-      case 'image':
+      case "heading-three":
+        return (
+          <h3 key={index} className="text-xl font-semibold mb-4">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h3>
+        );
+      case "paragraph":
+        return (
+          <p key={index} className="mb-8">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </p>
+        );
+      case "heading-four":
+        return (
+          <h4 key={index} className="text-md font-semibold mb-4">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h4>
+        );
+      case "image":
         return (
           <img
             key={index}
@@ -45,55 +62,64 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
-     <section className="dark:text-slate-50 text-gray-800 rounded-lg  container py-8 mx-auto mt-8">
-  <div className="items-center  object-fill w-11/12 h-96 mx-auto rounded-lg shadow-lg">
-  <img src={post.featuredimage.url} alt="" className="object-top h-full w-full object-cover  shadow-lg rounded-b-lg mb-6" />
-  </div>
-  <div className=" bg-white dark:bg-slate-800 -mt-24 mx-auto items-center w-5/6 z-50 rounded-lg px-4 py-4 shadow-lg">
-    <div type="button" className="w-full my-4 sm:w-auto inline-flex items-center justify-center text-white font-medium bg-slate-600 rounded-lg 
-    shadow-sm py-2 px-5 border border-white border-opacity-10 transform-gpu hover:-translate-y-0.5 transition-all duration-300
-    text-sm sm:text-base">
-      Kategori
-    </div>
-    <h1 className="font-display text-center mt-5 font-semibold text-3xl sm:text-4xl md:tracking-wide 
-    break-words sm:text-left">
-      {post.title}
-    </h1>
-    <div className="select-none flex items-center p-2 sm:p-4">
-      <div
-        className="flex flex-col w-8 h-8 justify-center items-center mr-4 hover:-translate-y-0.5 transition-all duration-150">
-        <div className="block relative">
-            <img
-                alt={post.author.name}
-                height="30px"
-                width="30px"
-                className="opacity-75 mx-auto object-cover rounded-full h-8 w-8"
-                src={post.author.photo.url}
-              />
-        </div>
-      </div>
-      <div className="opacity-75 flex-1 pl-1 mr-4 sm:mr-16">
-        <div className="font-medium">{post.author.name}</div>
-        <div className="text-gray-600 text-sm">{moment(post.createdAt).format('MMM DD, YYYY')}</div>
-      </div>
-      <div className="text-gray-600 hover:text-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path
-            d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
-        </svg>
-      </div>
-    </div>
-    <div className="text-base tracking-wider p-6 mt-4 rounded-xl indent-6 text-justify sm:text-lg">
-    {post.content.raw.children.map((typeObj, index) => {
-            const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+      <div className="bg-white dark:bg-slate-800 shadow-lg rounded-lg lg:p-8 pb-12 mb-8 tracking-wide leading-8">
+        <div className="px-4 lg:px-0">
+          <h1 className="mb-8 text-4xl flex justify-center font-semibold underline">
+            {post.title}
+          </h1>
+          <div className="flex items-center mb-8 w-full">
+            <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className=""
+                width={20}
+                height={20}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5"
+                />
+              </svg>
+
+              <p className="inline align-middle text-gray-700 ml-2 text-md dark:text-white">
+                {post.tags}
+              </p>
+            </div>
+            <div className="font-medium text-gray-700">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 inline mr-2 text-pink-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              <span className="align-middle dark:text-white">
+                {moment(post.createdAt).format("D MMMM YYYY")}
+              </span>
+            </div>
+          </div>
+          {post.content.raw.children.map((typeObj, index) => {
+            const children = typeObj.children.map((item, itemindex) =>
+              getContentFragment(itemindex, item.text, item)
+            );
 
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
-    </div>
-  </div>
-</section>
-<div className="py-4"></div>
-
+        </div>
+      </div>
     </>
   );
 };

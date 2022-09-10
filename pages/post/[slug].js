@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {getPosts, getPostDetails} from '../../services';
-import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm,Loader} from '../../components';
+import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm,Loader, PostDetailImage} from '../../components';
 
 import {useRouter} from 'next/router'
 
@@ -12,23 +12,25 @@ const PostDetails = ({ post }) => {
         return <Loader/>
     }
     return (
-        <div className='dark:bg-zinc-900'>
-            <div className="@apply max-w-7xl mx-auto">
-                <div className=" lg:px-48 grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    <div className="col-span-1 lg:col-span-12">
-                        <PostDetail post={post}/>
-                        <Author author={post.author} />
-                        <CommentsForm slug={post.slug} />
-                        <Comments slug={post.slug}  />
-                    </div>
-                    <div className="col-span-1 lg:col-span-12 mb-8">
-                        <div className="relative lg:sticky top-8">
-                            <PostWidget slug={post.slug} categories={post.categories.map( (category) => category.slug)} />
-                        </div>
-                    </div>
-                </div>
+        <div className="container mx-auto lg:px-36 mb-8 mt-24">
+        <div className="grid grid-cols-1 grid-rows-1 lg:grid-rows lg:grid-cols-12 gap-12">
+            <div className='grid col-span-1 lg:col-span-12'>
+              <PostDetailImage post={post} />
             </div>
+          <div className="col-span-1 lg:col-span-8">
+            <PostDetail post={post} />
+            <Author author={post.author} />
+            <CommentsForm slug={post.slug} />
+            <Comments slug={post.slug} />
+          </div>
+          <div className="col-span-1 lg:col-span-4">
+            <div className="relative lg:sticky top-8">
+              <PostWidget slug={post.slug} categories={post.categories.map((category) => category.slug)} />
+              <Categories />
+            </div>
+          </div>
         </div>
+      </div>
     )
 }
 
