@@ -62,4 +62,4 @@ const FeaturedPosts = () => {
   );
 };
 
-export default FeaturedPosts;export default FeaturedPosts;
+export default FeaturedPosts;
