@@ -1,6 +1,5 @@
 import React from "react";
 
-import moment from "moment";
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -31,7 +30,7 @@ const PostDetail = ({ post }) => {
         );
       case "paragraph":
         return (
-          <p key={index} className="mb-8">
+          <p key={index} className="mb-8 leading-6 tracking-wide">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
@@ -62,62 +61,24 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
-      <div className="bg-white dark:bg-slate-800 shadow-lg rounded-lg lg:p-8 pb-12 mb-8 tracking-wide leading-8">
+      <div className="bg-white dark:bg-darkBground pb-12 mb-8 tracking-wide leading-8">
         <div className="px-4 lg:px-0">
-          <h1 className="mb-8 text-4xl flex justify-center font-semibold underline">
-            {post.title}
-          </h1>
+         
           <div className="flex items-center mb-8 w-full">
             <div className="hidden md:flex items-center justify-center lg:mb-0 lg:w-auto mr-8">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className=""
-                width={20}
-                height={20}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M5.25 8.25h15m-16.5 7.5h15m-1.8-13.5l-3.9 19.5m-2.1-19.5l-3.9 19.5"
-                />
-              </svg>
+          
+            </div>
 
-              <p className="inline align-middle text-gray-700 ml-2 text-md dark:text-white">
-                {post.tags}
-              </p>
-            </div>
-            <div className="font-medium text-gray-700">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 inline mr-2 text-pink-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <span className="align-middle dark:text-white">
-                {moment(post.createdAt).format("D MMMM YYYY")}
-              </span>
-            </div>
           </div>
-          {post.content.raw.children.map((typeObj, index) => {
+            <div className="">
+            {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) =>
               getContentFragment(itemindex, item.text, item)
             );
 
             return getContentFragment(index, children, typeObj, typeObj.type);
           })}
+            </div>
         </div>
       </div>
     </>

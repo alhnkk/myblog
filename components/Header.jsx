@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { getCategories } from "../services";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import Dropdown from "./Dropdown";
 
 const Header = () => {
   const [mounted, setMounted] = useState(false);
@@ -19,7 +18,7 @@ const Header = () => {
     if (currentTheme === "dark") {
       return (
         <svg
-          className="w-6 h-6 mb-1 hover:text-white"
+          className="w-6 h-6 mb-1 hover:text-white dark:text-darkButton"
           xmlns="http://www.w3.org/2000/svg"
           role="button"
           onClick={() => setTheme("light")}
@@ -38,7 +37,7 @@ const Header = () => {
     } else {
       return (
         <svg
-          className="w-6 h-6 hover:text-white"
+          className="w-6 h-6 text-button"
           role="button"
           onClick={() => setTheme("dark")}
           xmlns="http://www.w3.org/2000/svg"
@@ -64,73 +63,167 @@ const Header = () => {
     getCategories().then((newCategories) => setCategories(newCategories));
   }, []);
   return (
-    <div className="fixed top-0 sm:left-0 z-50 shadow-md w-full bg-blue-400 dark:bg-slate-800">
-      <div className="container mx-auto lg:px-32 md:flex items-center justify-between py-2.5">
-        <div className="flex items-center">
+    <div className="fixed top-0 sm:left-0 z-50 shadow-lg w-full bg-bground dark:bg-zinc-900 ">
+      <div className="grid grid-cols-5 gap-4 container mx-auto lg:px-32 justify-between md:flex items-center py-2.5">
+        <div className="flex items-center col-span-1">
           <Link href="/">
-            <span className="flex cursor-pointer text-2xl font-extrabold text-white">
+            <span className="flex cursor-pointer text-2xl font-extrabold text-black">
               <svg
-                id="logo-16"
-                width="80"
-                height="43"
-                viewBox="0 0 109 43"
+                viewBox="0 0 90 90"
                 fill="none"
+                role="img"
                 xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="4 0"
               >
-                {" "}
-                <path
-                  d="M64.9315 11.4284C62.1883 8.6852 58.9316 6.5091 55.3475 5.0245C51.7633 3.5399 47.9219 2.7758 44.0424 2.7758C40.1629 2.7758 36.3215 3.5399 32.7373 5.0245C29.1532 6.5091 25.8965 8.6852 23.1533 11.4284L44.0424 32.3174L64.9315 11.4284Z"
-                  class="ccompli1"
-                  fill="#FFD200"
-                ></path>{" "}
-                <path
-                  d="M44.0686 32.3475C46.8118 35.0907 50.0684 37.2667 53.6526 38.7513C57.2367 40.2359 61.0782 41 64.9577 41C68.837 41 72.679 40.2359 76.263 38.7513C79.847 37.2667 83.104 35.0907 85.847 32.3475L64.9577 11.4584L44.0686 32.3475Z"
-                  class="ccompli2"
-                  fill="#06E07F"
-                ></path>{" "}
-                <path
-                  d="M44.017 32.3429C41.2738 35.0861 38.0171 37.2621 34.433 38.7467C30.8488 40.2313 27.0074 40.9954 23.1279 40.9954C19.2484 40.9954 15.407 40.2313 11.8228 38.7467C8.2387 37.2621 4.982 35.0861 2.2388 32.3429L23.1279 11.4538L44.017 32.3429Z"
-                  class="ccustom"
-                  fill="#E3073C"
-                ></path>{" "}
-                <path
-                  d="M64.9831 11.433C67.726 8.6898 70.983 6.5138 74.567 5.0292C78.151 3.5446 81.993 2.7805 85.872 2.7805C89.752 2.7805 93.593 3.5446 97.177 5.0292C100.761 6.5138 104.018 8.6898 106.761 11.433L85.872 32.3221L64.9831 11.433Z"
-                  class="ccustom"
-                  fill="#1F84EF"
-                ></path>{" "}
+                <title>Blog</title>
+                <mask
+                  id="mask__ring"
+                  maskUnits="userSpaceOnUse"
+                  x="0"
+                  y="0"
+                  width="90"
+                  height="90"
+                >
+                  <rect width="90" height="90" rx="180" fill="#FFFFFF"></rect>
+                </mask>
+                <g mask="url(#mask__ring)">
+                  <path d="M0 0h90v45H0z" fill="#73b06f"></path>
+                  <path d="M0 45h90v45H0z" fill="#0c8f8f"></path>
+                  <path d="M83 45a38 38 0 00-76 0h76z" fill="#0c8f8f"></path>
+                  <path d="M83 45a38 38 0 01-76 0h76z" fill="#405059"></path>
+                  <path d="M77 45a32 32 0 10-64 0h64z" fill="#405059"></path>
+                  <path d="M77 45a32 32 0 11-64 0h64z" fill="#ffad08"></path>
+                  <path d="M71 45a26 26 0 00-52 0h52z" fill="#ffad08"></path>
+                  <path d="M71 45a26 26 0 01-52 0h52z" fill="#73b06f"></path>
+                  <circle cx="45" cy="45" r="23" fill="#edd75a"></circle>
+                </g>
               </svg>
               <span className="flex items-center">Blog</span>
             </span>
           </Link>
         </div>
-        <ul
-          className={`md:flex md:items-center md:pb-0 pb-12   absolute md:static md:z-auto text-white dark:text-slate-300 z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-            open ? "top-10" : "top-[-490px]"
-          }`}
-        >
-          <li className="py-1 px-1 hover:bg-blue-900 dark:hover:bg-slate-600 rounded-md">
-            {renderThemeChanger()}
-          </li>
+        <div className="left-0 col-span-3">
+          <ul
+            className={`md:flex md:items-center md:pb-0 pb-12 space-x-6 absolute md:static md:z-auto text-black dark:text-slate-300 z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+              open ? "top-10" : "top-[-490px]"
+            }`}
+          >
+            <li
+              className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+          bg-[length:0px_10px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-200
+          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            >
+              <Link href={"/"}>
+                <a>Ana Sayfa</a>
+              </Link>
+            </li>
 
-          <li className="md:ml-8 md:my-0 my-7 hover:py-2 hover:text-gray-50  hover:bg-blue-900 dark:hover:bg-slate-600 rounded-md px-2 py-1">
-            <Link href={"/"}>
-              <a>Ana Sayfa</a>
-            </Link>
-          </li>
-          <li>
-            <Dropdown />
-          </li>
+            <li
+              className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+          bg-[length:0px_10px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-200
+          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            >
+              <Link href={"/category/dizi-film"}>
+                <a>Dizi/Film</a>
+              </Link>
+            </li>
 
-          <li className="md:ml-8 md:my-0 my-7 hover:py-2 hover:text-gray-50  hover:bg-blue-900 dark:hover:bg-slate-600 rounded-md px-2 py-1">
-            <Link href={"/contact"}>
-              <a>İletişim</a>
-            </Link>
-          </li>
-          <li className="md:ml-8 md:my-0 my-7 hover:py-2 hover:text-gray-50  hover:bg-blue-900 dark:hover:bg-slate-600 rounded-md px-2 py-1">
-            <Link href={"/about"}>
-              <a>Hakkımda</a>
-            </Link>
-          </li>
+            <li
+              className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+          bg-[length:0px_10px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-200
+          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            >
+              <Link href={"/contact"}>
+                <a>Oyun</a>
+              </Link>
+            </li>
+
+            <li
+              className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+          bg-[length:0px_10px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-200
+          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            >
+              <Link href={"/category/muzik"}>
+                <a>Müzik</a>
+              </Link>
+            </li>
+
+            <li
+              className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+          bg-[length:0px_10px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-200
+          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            >
+              <Link href={"/category/teknoloji"}>
+                <a>Teknoloji</a>
+              </Link>
+            </li>
+
+            <li
+              className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+          bg-[length:0px_10px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-200
+          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            >
+              <Link href={"/category/gundem"}>
+                <a>Gündem</a>
+              </Link>
+            </li>
+
+            <li
+              className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+          bg-[length:0px_10px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-200
+          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            >
+              <Link href={"/category/egitim"}>
+                <a>Eğitim</a>
+              </Link>
+            </li>
+
+            <li
+              className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+          bg-[length:0px_10px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-200
+          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+            >
+              <Link href={"/"}>
+                <a>Daha Fazla</a>
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="flex col-span-1">
           <svg
             fill="none"
             stroke="currentColor"
@@ -143,7 +236,19 @@ const Header = () => {
             {" "}
             <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
-        </ul>
+
+          <span
+            className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+          bg-[length:0px_10px]
+          bg-left-bottom
+          bg-no-repeat
+          transition-[background-size]
+          duration-200
+          hover:bg-[length:100%_3px] group-hover:bg-[length:100%_10px]"
+          >
+            {renderThemeChanger()}
+          </span>
+        </div>
 
         <div
           onClick={() => setOpen(!open)}
@@ -156,19 +261,26 @@ const Header = () => {
               viewBox="0 0 50 50"
               width="24px"
               height="24px"
+              className="mt-3"
             >
               <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />
             </svg>
           ) : (
             <svg
-              className=""
-              fill="#000000"
               xmlns="http://www.w3.org/2000/svg"
+              fill="none"
               viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
               width="24px"
-              height="25px"
+              height="24px"
+              className="mt-3"
             >
-              <path d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
+              />
             </svg>
           )}
         </div>

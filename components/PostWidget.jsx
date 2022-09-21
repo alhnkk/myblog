@@ -24,7 +24,7 @@ const PostWidget = ({ categories, slug }) => {
   return (
     <div className="shadow-md border-b-4 border-b-gray-300 rounded-lg  bg-white dark:bg-slate-800 dark:border-none mb-8">
       <div className="flex items-center bg-gray-200 dark:bg-gray-900 w-full h-16 rounded-b rounded-lg">
-        <h3 className="text-xl text-slate-900 dark:text-slate-300  font-medium pb-1 ml-6">
+        <h3 className="text-xl text-headline dark:text-slate-300  font-medium pb-1 ml-6">
           {slug ? "İlgili İçerikler" : "Son Gönderiler"}
         </h3>
       </div>
@@ -32,7 +32,7 @@ const PostWidget = ({ categories, slug }) => {
       {relatedPosts.map((post) => (
         <div
           key={post.title}
-          className="text-gray-700 dark:text-slate-300 pb-2 font-semibold p-8 flex items-center w-full dark:border-none"
+          className="text-headline dark:text-slate-300 pb-2 font-semibold p-8 flex items-center w-full dark:border-none"
         >
           <div className="w-16 flex-none">
             <img

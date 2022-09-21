@@ -19,12 +19,12 @@ export default function Home({ posts }) {
   };
 
   return (
-    <div className="dark:bg-neutral-900 bg-gray-100">
+    <div className="dark:bg-darkBground bg-gray-50">
       <FeaturedPosts />
       {/* <CategoryIcon /> */}
       <div className="container mx-auto px-4  lg:px-32  grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-8 col-span-1 ">
-          <span className="flex text-xl font-semibold underline decoration-blue-600  text-transparent bg-clip-text bg-gradient-to-br from-black to-blue-900 dark:text-slate-200">
+        <div className="relative lg:col-span-8 col-span-1 ">
+          <span className="absolute opacity-30 mt-2 dark:text-darkParaghraph flex text-3xl bg-clip-text bg-gradient-to-br from-black to-blue-900">
           Son Eklenenler  
           </span>
           {posts
@@ -36,7 +36,7 @@ export default function Home({ posts }) {
           <LoadMore showMoreItems={showMoreItems} />
         </div>
 
-        <div className="text-slate-400 lg:col-span-4  col-span-1">
+        <div className="dark:text-paraghraph lg:col-span-4  col-span-1">
           <div className="top-8">
             <PostWidget />
             <Categories />
