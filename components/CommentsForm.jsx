@@ -43,9 +43,11 @@ const CommentsForm = ({ slug }) => {
   };
   return (
     <div className="bg-white dark:bg-slate-800 rounded-lg p-8 pb-12 mb-8">
-      <h3 className="text-xl mb-8 font-semibold border-b pb-4 dark:text-slate-50">
-        Gönderiyi Yorumlayın
-      </h3>
+      <div className="flex items-center bg-gray-200 dark:bg-gray-900 w-full h-16 rounded-b rounded-lg">
+       <h3 className="text-xl text-headline dark:text-slate-300 font-medium pb-1 ml-6">
+          Yorum Yaz
+        </h3>
+        </div> 
       <div className="grid grid-cols-1 lg:grid-cols-1 gap-4 mb-4">
         <textarea
           ref={commentEl}
@@ -67,7 +69,7 @@ const CommentsForm = ({ slug }) => {
 
         <input
           ref={emailEl}
-          type="text"
+          type="email"
           className="py-2 px-4 dark:bg-slate-300 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
           placeholder="Mail Adresinizi Girin"
           name="email"

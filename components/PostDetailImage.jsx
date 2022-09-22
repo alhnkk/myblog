@@ -3,8 +3,8 @@ import moment from "moment";
 
 const PostDetailImage = ({ post }) => {
   return (
-    <div>
-      <div className="relative overflow-hidden shadow-md bg-gradient-to-b from-black via-gray-700 to-black rounded-t-lg">
+    <div className="px-4 md:px-0">
+      <div className="relative overflow-hidden shadow-md bg-gradient-to-b from-black via-gray-700 to-black rounded-t-lg z-1">
         <img
           src={post.featuredimage.url}
           alt=""
@@ -12,10 +12,10 @@ const PostDetailImage = ({ post }) => {
         />
       </div>
       <div className="flex flex-col">
-        <h1 className="absolute ml-3 bottom-72 text-4xl flex font-extrabold text-white dark:text-darkHeadline">
+        <h1 className="absolute ml-3 bottom-72 text-4xl flex font-extrabold text-white dark:text-darkHeadline z-20 px-4 md:px-0">
           {post.title}
         </h1>
-        <div className="font-sm text-sm text-gray-700 absolute ml-3 top-28 bg-gray-200 rounded-lg p-1">
+        <div className="font-sm ml-4 text-sm text-gray-700 absolute top-28 bg-gray-200 rounded-lg p-1 z-20">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 inline mr-2 text-purple-500"

@@ -18,7 +18,7 @@ const Header = () => {
     if (currentTheme === "dark") {
       return (
         <svg
-          className="w-6 h-6 mb-1 hover:text-white dark:text-darkButton"
+          className="w-6 h-6 hover:text-white dark:text-darkButton"
           xmlns="http://www.w3.org/2000/svg"
           role="button"
           onClick={() => setTheme("light")}
@@ -64,8 +64,8 @@ const Header = () => {
   }, []);
   return (
     <div className="fixed top-0 sm:left-0 z-50 shadow-lg w-full bg-bground dark:bg-zinc-900 ">
-      <div className="grid grid-cols-5 gap-4 container mx-auto lg:px-32 justify-between md:flex items-center py-2.5">
-        <div className="flex items-center col-span-1">
+      <div className="ml-5 md:ml-0 grid grid-cols-5 gap-4 container mx-auto lg:px-32 justify-between md:flex items-center py-2.5">
+        <div className="5 flex items-center col-span-1">
           <Link href="/">
             <span className="flex cursor-pointer text-2xl font-extrabold text-black">
               <svg
@@ -110,7 +110,7 @@ const Header = () => {
             }`}
           >
             <li
-              className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+              className="md:bg-none md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
           bg-[length:0px_10px]
           bg-left-bottom
           bg-no-repeat
@@ -223,7 +223,9 @@ const Header = () => {
           </ul>
         </div>
 
-        <div className="flex col-span-1">
+        <div  className={`md:flex md:items-center md:pb-0 pb-12 space-x-6 absolute md:static md:z-auto text-black dark:text-slate-300 z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+              open ? "top-10" : "top-[-490px]"
+            }`}>
           <svg
             fill="none"
             stroke="currentColor"
@@ -231,14 +233,14 @@ const Header = () => {
             stroke-linejoin="round"
             stroke-width="2"
             viewBox="0 0 24 24"
-            className=" w-5 h-5 cursor-not-allowed ml-3"
+            className=" w-5 h-5 cursor-not-allowed ml-3 mt-0.5"
           >
             {" "}
             <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
 
           <span
-            className="md:ml-3 md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
+            className="md:ml-3  md:my-0 my-7 font-semibold dark:text-white bg-gradient-to-r from-blue-200 to-blue-400 dark:from-purple-800 dark:to-purple-900
           bg-[length:0px_10px]
           bg-left-bottom
           bg-no-repeat
@@ -261,7 +263,7 @@ const Header = () => {
               viewBox="0 0 50 50"
               width="24px"
               height="24px"
-              className="mt-3"
+              className=""
             >
               <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />
             </svg>
@@ -274,7 +276,7 @@ const Header = () => {
               stroke="currentColor"
               width="24px"
               height="24px"
-              className="mt-3"
+              className=""
             >
               <path
                 strokeLinecap="round"
